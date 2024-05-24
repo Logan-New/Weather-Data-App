@@ -1,0 +1,147 @@
+/* Reset default margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    text-size-adjust: 800px;
+}
+
+/* Container for the entire page */
+.container {
+    max-width: auto;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 2px;
+    /*box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+/* Heading styles */
+.heading {
+    text-align: center;
+    margin-bottom: 20px; /* Add gap below the heading */
+    background-color: #4F8CF5;
+    color: white;
+    padding: 2px;
+    border-radius: 0px;
+    max-width: auto;
+}
+
+/* Search container styles */
+.search-container {
+    margin-bottom: 20px; /* Add margin below the search container */
+}
+
+#cityForm {
+    display: flex;
+    width: 100%; /* Full width */
+}
+
+#cityInput {
+    flex-grow: 1; /* Take up remaining space */
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+}
+
+#cityInput:focus {
+    outline: none;
+    border-color: #4F8CF5;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    background-color: #4F8CF5;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3464b7;
+}
+
+/* Content styles */
+.content {
+    display: flex;
+    
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px; /* Set fixed width */
+    background-color: white; /* Dark background */
+    color: black; /* White text */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-y: auto; /* Add scrollbar if content exceeds height */
+    margin-right: 20px; /* Add margin between sidebar and main content */
+}
+
+/* Recent searches styles */
+.recent-searches {
+    margin-bottom: 20px; /* Add margin between recent searches and forecast */
+}
+
+.recent-searches h2 {
+    margin-bottom: 10px;
+}
+
+#searchHistoryList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#searchHistoryList li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: lightgray; /* Darkish blue/grey */
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+}
+
+#searchHistoryList li:hover {
+    background-color: #3464b7;
+}
+
+/* Main content styles */
+.main-content {
+    flex-grow: 1; /* Take up remaining space */
+    text-size-adjust: 800px;
+}
+
+/* Current weather styles */
+.current-weather {
+    background-color: #485268; /* Darkish blue/grey */
+    padding: 20px;
+    border-radius: 5px;
+    color: white; /* White text */
+    max-height: 500px; /* Set max height */
+    overflow-y: auto; /* Add scrollbar if content exceeds max height */
+    margin-bottom: 20px; /* Add margin below */
+    text-size-adjust: 800px;
+}
+
+/* Forecast container styles */
+.forecast-container {
+    display: inline-block;
+    flex-grow: 1;
+    justify-content: space-between; /* Ensure space between items */
+   /* overflow-x: auto; /* Allow horizontal scrolling if needed */
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* Add margin below */
+}
+
+.forecast-item {
+    flex-grow: 1;/* Set width to 100px */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #485268; /* Darkish blue/grey */
+    color: white; /* White text */
+    flex-direction:row;
+    display: inline-block;
+}
+
+
