@@ -26,28 +26,7 @@ Humidity
 Search History
 When I click on a city in the search history, I am again presented with current and future conditions for that city.
 Getting Started
-Prerequisites
-A web browser
-An active internet connection
-OpenWeather API Key
-Installation
-Clone the repository:
-
-bash
-Copy code
-git clone https://github.com/yourusername/weather-dashboard.git
-Open the project directory:
-
-bash
-Copy code
-cd weather-dashboard
-Open index.html in your preferred web browser.
-
-Usage
-API Key Setup
-
-Register for an API key on the OpenWeather website.
-Replace YOUR_API_KEY in the script with your actual API key.
+visit https://logan-new.github.io/WeatherApp/
 Searching for a City
 
 Enter the name of a city in the search input field and click the search button.
