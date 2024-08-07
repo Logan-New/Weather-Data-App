@@ -1,28 +1,27 @@
 const apiKey = '18901d219b58f26d7e1c76fef7a8a8d1';
 const baseUrl = 'https://api.openweathermap.org/data/2.5/';
 
-// Function to fetch weather data
-async function fetchWeather(city) {
-    const url = `${baseUrl}weather?q=${city}&units=imperial&appid=${apiKey}`;
+// Utility function to make API requests
+async function fetchData(url) {
     try {
         const response = await fetch(url);
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error('Error fetching weather data:', error);
+        console.error('Error fetching data:', error);
     }
+}
+
+// Function to fetch weather data
+async function fetchWeather(city) {
+    const url = `${baseUrl}weather?q=${city}&units=imperial&appid=${apiKey}`;
+    return await fetchData(url);
 }
 
 // Function to fetch forecast data
 async function fetchForecast(city) {
     const url = `${baseUrl}forecast?q=${city}&units=imperial&appid=${apiKey}`;
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching forecast data:', error);
-    }
+    return await fetchData(url);
 }
 
 // Function to display current weather
@@ -62,13 +61,7 @@ async function handleFormSubmit(event) {
     const city = cityInput.value.trim();
     if (city === '') return;
 
-    // Check if the city already exists in the search history
-    const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-    if (!searchHistory.includes(city)) {
-        searchHistory.push(city);
-        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
-        addCityToSearchHistory(city);
-    }
+    updateSearchHistory(city);
 
     const weatherData = await fetchWeather(city);
     if (weatherData) {
@@ -79,6 +72,16 @@ async function handleFormSubmit(event) {
         }
     }
     cityInput.value = '';
+}
+
+// Function to update search history
+function updateSearchHistory(city) {
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    if (!searchHistory.includes(city)) {
+        searchHistory.push(city);
+        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+        addCityToSearchHistory(city);
+    }
 }
 
 // Function to add a city to the search history list
@@ -104,8 +107,7 @@ function loadSearchHistory() {
 }
 
 // Add event listener for form submission
-const cityForm = document.getElementById('cityForm');
-cityForm.addEventListener('submit', handleFormSubmit);
+document.getElementById('cityForm').addEventListener('submit', handleFormSubmit);
 
 // Load search history on page load
 window.addEventListener('load', loadSearchHistory);
